@@ -88,11 +88,12 @@ func redirectURLHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, "Invalid request", http.StatusNotFound)
 	}
+	http.Redirect(w, r, url.OriginalURL, http.StatusNotFound)
 
 }
 func main() {
 	// fmt.Println("Starting URL shortner...")
-	// OriginalURL := "https://github.com/Price-1501/"
+	// OriginalURL := "https://google.com"
 	// generateShortURL(OriginalURL)
 
 	//Register the handler function to handle all requests to the root URL ("/")
